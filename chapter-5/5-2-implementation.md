@@ -896,3 +896,65 @@ Add screenshots or other review artifacts that demonstrate the completed Sprint 
 #### 5.2.2.8. Team Collaboration Insights during Sprint
 
 The sprint backlog was used to track the selected user stories and their progress. The completed work covered several application areas, including laboratory management, settings, alerts, history, and analytics. Feature branches and merge commits in the project history show that this work was integrated into the shared development branch. The sprint concluded with all planned stories marked as Done in the backlog.
+
+### 5.2.3. Sprint 3
+#### 5.2.1.1. Sprint Planning 3
+
+<table>
+    <tr>
+       <th>Sprint</th>
+       <td>Sprint 3</td>
+    </tr>
+    <tr>
+       <th>Sprint Planning Background</th>
+       <td>Sprint 3 is planned around Epic EP03 (Backend Services) and addressing pending frontend/documentation debt. The work covers finalizing missing report sections, editing the landing page, establishing the database schema, building core RESTful API endpoints, and generating interactive technical documentation (Swagger/OpenAPI).</td>
+    </tr>
+    <tr>
+       <th>Date</th>
+       <td>13/10/2026</td>
+    </tr>
+    <tr>
+       <th>Time</th>
+       <td>3:30 p.m.</td>
+    </tr>
+    <tr>
+       <th>Location</th>
+       <td>Google Meet</td>
+    </tr>
+    <tr>
+       <th>Prepared By</th>
+       <td>Arizabal Condori, Jean Niels</td>
+    </tr>
+    <tr>
+       <th>Attendees</th>
+       <td>Arizabal Condori, Jean Niels;
+       Homola, Tomas;
+       Padilla Merino, Mauricio Jared;
+       Reyes Munoz, Joaquin Leonardo
+       </td>
+    </tr>
+    <tr>
+       <th>Sprint 2 Review Summary</th>
+       <td>The team reviewed the UI and documentation from Sprint 2 and identified several critical items that must be resolved before full backend integration. These include: adding missing sections to the project report, fixing frontend application bugs, and editing the Landing Page (specifically moving the Call to Action (CTA) and adding terms & condition page).</td>
+    </tr>
+    <tr>
+       <th>Sprint 2 Retrospective Summary</th>
+       <td>The team recognized significant areas for process improvement. Communication and daily interactions between members must increase. Crucially, the team agreed to enforce a phased development schedule to ensure tasks are completed steadily throughout the sprint, strictly avoiding the anti-pattern of rushing all development work in the last 3 days.</td>
+    </tr>
+    <tr>
+       <th>Sprint Goal and User Stories</th>
+       <td>Resolve pending UI/Landing Page debt and deliver the foundational backend architecture. User stories include US09-US11 and TS04-TS05: initialize the database, implement core CRUD controllers, deploy the services, and configure OpenAPI specifications.</td>
+    </tr>
+    <tr>
+       <th>Sprint 3 Goal</th>
+       <td>Execute necessary frontend and report fixes, and provide a secure, deployed backend service with fully documented API endpoints that will allow the Web Application to perform dynamic data operations.</td>
+    </tr>
+    <tr>
+       <th>Sprint 3 Velocity</th>
+       <td>16 story points, based on UI/Report Fixes (2), US09 (3), US10 (3), US11 (4), TS04 (2), and TS05 (2).</td>
+    </tr>
+    <tr>
+       <th>Sum of Story Points</th>
+       <td>16 planned points: UI/Report Fixes (2) + US09 (3) + US10 (3) + US11 (4) + TS04 (2) + TS05 (2).</td>
+    </tr>
+</table>
