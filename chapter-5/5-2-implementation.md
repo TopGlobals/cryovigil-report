@@ -958,3 +958,49 @@ The sprint backlog was used to track the selected user stories and their progres
        <td>16 planned points: UI/Report Fixes (2) + US09 (3) + US10 (3) + US11 (4) + TS04 (2) + TS05 (2).</td>
     </tr>
 </table>
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+`L` identifies the aspect leader and `C` identifies a collaborator.
+
+<table>
+    <thead>
+       <tr>
+          <th>Team Member</th>
+          <th>GitHub Username</th>
+          <th>Backend API (L/C)</th>
+          <th>Frontend Fixes (L/C)</th>
+          <th>Documentation (L/C)</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+          <td>Arizabal Condori, Jean Niels</td>
+          <td>JeanArizabal</td>
+          <td>C</td>
+          <td>C</td>
+          <td>L</td>
+       </tr>
+       <tr>
+          <td>Homola, Tomas</td>
+          <td>Ch1L1</td>
+          <td>C</td>
+          <td>L</td>
+          <td>C</td>
+       </tr>
+       <tr>
+          <td>Padilla Merino, Mauricio Jared</td>
+          <td>ClifeK</td>
+          <td>C</td>
+          <td>C</td>
+          <td>C</td>
+       </tr>
+       <tr>
+          <td>Reyes Munoz, Joaquin Leonardo</td>
+          <td>JoakoRM</td>
+          <td>L</td>
+          <td>C</td>
+          <td>C</td>
+       </tr>
+    </tbody>
+</table>
