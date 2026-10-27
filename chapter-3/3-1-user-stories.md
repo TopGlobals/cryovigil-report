@@ -31,6 +31,11 @@
     <td>Account, Security, and User Experience</td>
     <td>Manage authentication, user sessions, preferences, and system notifications.</td>
 </tr>
+<tr>
+    <td>EP05</td>
+    <td>Technical Infrastructure and API Services</td>
+    <td>Provide REST backend endpoints, IoT telemetry ingestion pipelines, rules engines for excursion detection, and audit persistence mechanisms.</td>
+</tr>
 	</tbody>
 </table>
 
@@ -758,6 +763,134 @@ Then the headers display the uploaded company branding.<br><br>
 Given that uploaded logo exceeds pixel dimensions (e.g., > 2000x2000 px),<br>
 When uploading,<br>
 Then the system automatically resizes or prompts for appropriate dimensions.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
+</td>
+<td>EP04</td>
+</tr>
+<tr>
+<td>US51</td>
+<td>Mobile Web Responsive Layout Optimization</td>
+<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>
+<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+Given that user opens SafeLab URL on a mobile device,<br>
+When viewing dashboard,<br>
+Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
+<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+Given that screen resolution falls below 320px width,<br>
+When rendered,<br>
+Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
 <td>EP04</td>
 </tr>
