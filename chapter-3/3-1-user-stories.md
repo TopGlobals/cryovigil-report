@@ -783,132 +783,132 @@ Then critical action buttons scale up to maintain tap accessibility guidelines.
 <td>EP04</td>
 </tr>
 <tr>
-<td>US51</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>TS01</td>
+<td>List all laboratories for a given organization</td>
+<td>As a frontend developer, I want to request the API to list laboratories filtered by optional status criteria. So that: I can implement the site overview and laboratory list view.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Returns one or more laboratories</b><br>
+Given a request GET /api/v1/laboratories is received,
+When the API finds one or more matching laboratory resources,<br>
+Then the API responds with 200 OK and returns an array of laboratory resources, including id, name, location, status, and activeSensorsCount.<br><br>
+<b>Scenario 2: Returns no laboratories</b><br>
+Given a request GET /api/v1/laboratories with non-matching filters is received,
+When the API finds no matching resources,<br>
+Then the API responds with 200 OK and returns an empty array.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>TS02</td>
+<td>Retrieve laboratory details by id</td>
+<td>As a frontend developer, I want to request a specific laboratory resource by its laboratoryId. So that: I can implement the detailed storage unit control panel.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Found</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId is received,
+When the API finds the matching resource,<br><br>
+Then the API responds with 200 OK and returns the full laboratory details (id, name, location, status, minTempThreshold, maxTempThreshold, emergencyContact).<br><br>
+<b>Scenario 2: Not found</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId for a non-existent laboratoryId is received,<br>
+When the API does not find the resource,<br>
+Then the API responds with 404 Not Found.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>TS03</td>
+<td>Register a new laboratory environment</td>
+<td>As a frontend developer, I want to send laboratory parameters via POST. So that: I can implement the laboratory creation wizard.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Successful creation</b><br>
+Given a request POST /api/v1/laboratories is received with a valid payload,<br>
+When the API successfully persists the new laboratory,<br>
+Then the API responds with 201 Created and returns the created resource containing its generated id and default "Stable" status.<br><br>
+<b>Scenario 2: Missing required fields</b><br>
+Given a request POST /api/v1/laboratories is received with missing required fields,<br>
+When the API validates the payload,<br>
+Then the API responds with 400 Bad Request and an error message detailing the missing parameters.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>TS04</td>
+<td>Link an IoT sensor to a storage unit</td>
+<td>As a frontend developer, I want to send a sensor registration payload with a laboratoryId. So that: I can implement the hardware onboarding workflow.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Sensor successfully linked</b><br>
+Given a request POST /api/v1/laboratories/laboratoryId/sensors is received with a valid sensor payload,<br>
+When the API validates the sensor hardware serial is unique and links it to the laboratory,<br>
+Then the API responds with 201 Created and returns the linked sensor resource.<br><br>
+<b>Scenario 2: Duplicate sensor hardware serial</b><br>
+Given a request POST /api/v1/laboratories/laboratoryId/sensors is received with an already registered hardwareSerial,<br>
+When the API detects duplicate hardware registration,<br>
+Then the API responds with 409 Conflict and an error message indicating the sensor is already assigned elsewhere.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
+<td>TS05</td>
 <td>Mobile Web Responsive Layout Optimization</td>
 <td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+<b>Scenario 1: Mobile responsive view navigation</b><br>
 Given that user opens SafeLab URL on a mobile device,<br>
 When viewing dashboard,<br>
 Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+<b>Scenario 2: Unresponsive touch target warning</b><br>
 Given that screen resolution falls below 320px width,<br>
 When rendered,<br>
 Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
+<td>TS06</td>
 <td>Mobile Web Responsive Layout Optimization</td>
 <td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+<b>Scenario 1: Mobile responsive view navigation</b><br>
 Given that user opens SafeLab URL on a mobile device,<br>
 When viewing dashboard,<br>
 Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+<b>Scenario 2: Unresponsive touch target warning</b><br>
 Given that screen resolution falls below 320px width,<br>
 When rendered,<br>
 Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
+<td>TS07</td>
 <td>Mobile Web Responsive Layout Optimization</td>
 <td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+<b>Scenario 1: Mobile responsive view navigation</b><br>
 Given that user opens SafeLab URL on a mobile device,<br>
 When viewing dashboard,<br>
 Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+<b>Scenario 2: Unresponsive touch target warning</b><br>
 Given that screen resolution falls below 320px width,<br>
 When rendered,<br>
 Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 <tr>
-<td>US51</td>
+<td>TS08</td>
 <td>Mobile Web Responsive Layout Optimization</td>
 <td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
 <td>
-<b>Scenario 1 (Happy Path): Mobile responsive view navigation</b><br>
+<b>Scenario 1: Mobile responsive view navigation</b><br>
 Given that user opens SafeLab URL on a mobile device,<br>
 When viewing dashboard,<br>
 Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2 (Unhappy Path): Unresponsive touch target warning</b><br>
+<b>Scenario 2: Unresponsive touch target warning</b><br>
 Given that screen resolution falls below 320px width,<br>
 When rendered,<br>
 Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
-<td>EP04</td>
+<td>EP05</td>
 </tr>
 	</tbody>
 </table>
