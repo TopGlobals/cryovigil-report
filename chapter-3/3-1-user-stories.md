@@ -785,7 +785,7 @@ Then critical action buttons scale up to maintain tap accessibility guidelines.
 <tr>
 <td>TS01</td>
 <td>List all laboratories for a given organization</td>
-<td>As a frontend developer, I want to request the API to list laboratories filtered by optional status criteria. So that: I can implement the site overview and laboratory list view.</td>
+<td>As a: frontend developer, I want to: request the API to list laboratories filtered by optional status criteria. So that: I can implement the site overview and laboratory list view.</td>
 <td>
 <b>Scenario 1: Returns one or more laboratories</b><br>
 Given a request GET /api/v1/laboratories is received,
@@ -801,7 +801,7 @@ Then the API responds with 200 OK and returns an empty array.
 <tr>
 <td>TS02</td>
 <td>Retrieve laboratory details by id</td>
-<td>As a frontend developer, I want to request a specific laboratory resource by its laboratoryId. So that: I can implement the detailed storage unit control panel.</td>
+<td>As a: frontend developer, I want to: request a specific laboratory resource by its laboratoryId. So that: I can implement the detailed storage unit control panel.</td>
 <td>
 <b>Scenario 1: Found</b><br>
 Given a request GET /api/v1/laboratories/laboratoryId is received,
@@ -817,7 +817,7 @@ Then the API responds with 404 Not Found.
 <tr>
 <td>TS03</td>
 <td>Register a new laboratory environment</td>
-<td>As a frontend developer, I want to send laboratory parameters via POST. So that: I can implement the laboratory creation wizard.</td>
+<td>As a: frontend developer, I want to: send laboratory parameters via POST. So that: I can implement the laboratory creation wizard.</td>
 <td>
 <b>Scenario 1: Successful creation</b><br>
 Given a request POST /api/v1/laboratories is received with a valid payload,<br>
@@ -833,7 +833,7 @@ Then the API responds with 400 Bad Request and an error message detailing the mi
 <tr>
 <td>TS04</td>
 <td>Link an IoT sensor to a storage unit</td>
-<td>As a frontend developer, I want to send a sensor registration payload with a laboratoryId. So that: I can implement the hardware onboarding workflow.</td>
+<td>As a: frontend developer, I want to: send a sensor registration payload with a laboratoryId. So that: I can implement the hardware onboarding workflow.</td>
 <td>
 <b>Scenario 1: Sensor successfully linked</b><br>
 Given a request POST /api/v1/laboratories/laboratoryId/sensors is received with a valid sensor payload,<br>
@@ -848,65 +848,65 @@ Then the API responds with 409 Conflict and an error message indicating the sens
 </tr>
 <tr>
 <td>TS05</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>Ingest real-time sensor thermal telemetry</td>
+<td>As an: IoT Gateway, I want to: receive real-time telemetry payloads via POST. So that: the system can analyze temperature readings against defined thresholds.</td>
 <td>
-<b>Scenario 1: Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2: Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Telemetry processed within safe thresholds</b><br>
+Given a request POST /api/v1/telemetry is received with sensorId, temperature, humidity, and timestamp,<br>
+When the reading is within the laboratory's safe threshold range,<br>
+Then the API responds with 200 OK and updates the real-time cache for dashboard streams.<br><br>
+<b>Scenario 2: Thermal excursion detected</b><br>
+Given a request POST /api/v1/telemetry is received with a temperature value exceeding maxTempThreshold,<br>
+When the API evaluates the reading against threshold policies,<br>
+Then the API responds with 200 OK, automatically generates a Critical Alert event, and updates the laboratory status to "Critical".
 </td>
 <td>EP05</td>
 </tr>
 <tr>
 <td>TS06</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>List active thermal alerts</td>
+<td>As a: frontend developer, I want to: query active alerts filtered by severity or laboratoryId. So that: I can populate real-time incident feeds on the Dashboard.</td>
 <td>
-<b>Scenario 1: Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2: Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Returns active alerts</b><br>
+Given a request GET /api/v1/alerts?status=ACTIVE is received,<br>
+When the API finds matching alert resources,<br>
+TThen the API responds with 200 OK and returns an array of alert resources (id, laboratoryId, sensorId, severity, excursionTemp, timestamp).<br><br>
+<b>Scenario 2: No active alerts</b><br>
+Given a request GET /api/v1/alerts?status=ACTIVE is received,<br>
+When there are no active thermal excursions recorded,<br>
+Then the API responds with 200 OK and returns an empty array.
 </td>
 <td>EP05</td>
 </tr>
 <tr>
 <td>TS07</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>Submit corrective action for an incident</td>
+<td>As a: frontend developer, I want to: post a resolution payload to /api/v1/alerts/alertId/actions. So that: technicians can document incident mitigation.</td>
 <td>
-<b>Scenario 1: Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2: Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Action logged successfully</b><br>
+Given a request POST /api/v1/alerts/{alertId}/actions is received with a valid action payload,<br>
+When the API persists the action and updates alert status to "Resolved",<br>
+Then the API responds with 200 OK and returns the updated incident record with timestamp and digital signature.<br><br>
+<b>Scenario 2: Empty action description rejected</b><br>
+Given a request POST /api/v1/alerts/alertId/actions is received with an empty actionDescription,<br>
+When the API validates the request,<br>
+Then the API responds with 400 Bad Request stating that technical justification is mandatory for audit compliance.
 </td>
 <td>EP05</td>
 </tr>
 <tr>
 <td>TS08</td>
-<td>Mobile Web Responsive Layout Optimization</td>
-<td>As a: On-Call Technician. I want to: Access the dashboard, acknowledge alerts, and record corrective actions from a smartphone browser. So that: I can respond to emergencies away from my desktop terminal.</td>
+<td>Retrieve historical thermal data for export and audit</td>
+<td>As a: frontend developer, I want to: request historical telemetry logs by date range. So that: I can render 24-hour trend charts and generate compliance PDF reports.</td>
 <td>
-<b>Scenario 1: Mobile responsive view navigation</b><br>
-Given that user opens SafeLab URL on a mobile device,<br>
-When viewing dashboard,<br>
-Then tables adapt into collapsible mobile card views with touch-friendly action buttons.<br><br>
-<b>Scenario 2: Unresponsive touch target warning</b><br>
-Given that screen resolution falls below 320px width,<br>
-When rendered,<br>
-Then critical action buttons scale up to maintain tap accessibility guidelines.
+<b>Scenario 1: Historical data retrieved</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId/history?startDate=startDate&endDate=endDate is received,<br>
+When the API retrieves the chronological temperature and incident logs,<br>
+Then the API responds with 200 OK and returns an array of data points with digital integrity verification hashes.<br><br>
+<b>Scenario 2: Invalid date range requested</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId/history with startDate greater than endDate is received,<br>
+When the API validates query parameters,<br>
+Then the API responds with 400 Bad Request detailing invalid temporal parameters.
 </td>
 <td>EP05</td>
 </tr>
