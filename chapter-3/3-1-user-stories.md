@@ -31,6 +31,11 @@
     <td>Account, Security, and User Experience</td>
     <td>Manage authentication, user sessions, preferences, and system notifications.</td>
 </tr>
+<tr>
+    <td>EP05</td>
+    <td>Technical Infrastructure and API Services</td>
+    <td>Provide REST backend endpoints, IoT telemetry ingestion pipelines, rules engines for excursion detection, and audit persistence mechanisms.</td>
+</tr>
 	</tbody>
 </table>
 
@@ -776,6 +781,134 @@ When rendered,<br>
 Then critical action buttons scale up to maintain tap accessibility guidelines.
 </td>
 <td>EP04</td>
+</tr>
+<tr>
+<td>TS01</td>
+<td>List all laboratories for a given organization</td>
+<td>As a: frontend developer, I want to: request the API to list laboratories filtered by optional status criteria. So that: I can implement the site overview and laboratory list view.</td>
+<td>
+<b>Scenario 1: Returns one or more laboratories</b><br>
+Given a request GET /api/v1/laboratories is received,
+When the API finds one or more matching laboratory resources,<br>
+Then the API responds with 200 OK and returns an array of laboratory resources, including id, name, location, status, and activeSensorsCount.<br><br>
+<b>Scenario 2: Returns no laboratories</b><br>
+Given a request GET /api/v1/laboratories with non-matching filters is received,
+When the API finds no matching resources,<br>
+Then the API responds with 200 OK and returns an empty array.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS02</td>
+<td>Retrieve laboratory details by id</td>
+<td>As a: frontend developer, I want to: request a specific laboratory resource by its laboratoryId. So that: I can implement the detailed storage unit control panel.</td>
+<td>
+<b>Scenario 1: Found</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId is received,
+When the API finds the matching resource,<br><br>
+Then the API responds with 200 OK and returns the full laboratory details (id, name, location, status, minTempThreshold, maxTempThreshold, emergencyContact).<br><br>
+<b>Scenario 2: Not found</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId for a non-existent laboratoryId is received,<br>
+When the API does not find the resource,<br>
+Then the API responds with 404 Not Found.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS03</td>
+<td>Register a new laboratory environment</td>
+<td>As a: frontend developer, I want to: send laboratory parameters via POST. So that: I can implement the laboratory creation wizard.</td>
+<td>
+<b>Scenario 1: Successful creation</b><br>
+Given a request POST /api/v1/laboratories is received with a valid payload,<br>
+When the API successfully persists the new laboratory,<br>
+Then the API responds with 201 Created and returns the created resource containing its generated id and default "Stable" status.<br><br>
+<b>Scenario 2: Missing required fields</b><br>
+Given a request POST /api/v1/laboratories is received with missing required fields,<br>
+When the API validates the payload,<br>
+Then the API responds with 400 Bad Request and an error message detailing the missing parameters.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS04</td>
+<td>Link an IoT sensor to a storage unit</td>
+<td>As a: frontend developer, I want to: send a sensor registration payload with a laboratoryId. So that: I can implement the hardware onboarding workflow.</td>
+<td>
+<b>Scenario 1: Sensor successfully linked</b><br>
+Given a request POST /api/v1/laboratories/laboratoryId/sensors is received with a valid sensor payload,<br>
+When the API validates the sensor hardware serial is unique and links it to the laboratory,<br>
+Then the API responds with 201 Created and returns the linked sensor resource.<br><br>
+<b>Scenario 2: Duplicate sensor hardware serial</b><br>
+Given a request POST /api/v1/laboratories/laboratoryId/sensors is received with an already registered hardwareSerial,<br>
+When the API detects duplicate hardware registration,<br>
+Then the API responds with 409 Conflict and an error message indicating the sensor is already assigned elsewhere.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS05</td>
+<td>Ingest real-time sensor thermal telemetry</td>
+<td>As an: IoT Gateway, I want to: receive real-time telemetry payloads via POST. So that: the system can analyze temperature readings against defined thresholds.</td>
+<td>
+<b>Scenario 1: Telemetry processed within safe thresholds</b><br>
+Given a request POST /api/v1/telemetry is received with sensorId, temperature, humidity, and timestamp,<br>
+When the reading is within the laboratory's safe threshold range,<br>
+Then the API responds with 200 OK and updates the real-time cache for dashboard streams.<br><br>
+<b>Scenario 2: Thermal excursion detected</b><br>
+Given a request POST /api/v1/telemetry is received with a temperature value exceeding maxTempThreshold,<br>
+When the API evaluates the reading against threshold policies,<br>
+Then the API responds with 200 OK, automatically generates a Critical Alert event, and updates the laboratory status to "Critical".
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS06</td>
+<td>List active thermal alerts</td>
+<td>As a: frontend developer, I want to: query active alerts filtered by severity or laboratoryId. So that: I can populate real-time incident feeds on the Dashboard.</td>
+<td>
+<b>Scenario 1: Returns active alerts</b><br>
+Given a request GET /api/v1/alerts?status=ACTIVE is received,<br>
+When the API finds matching alert resources,<br>
+TThen the API responds with 200 OK and returns an array of alert resources (id, laboratoryId, sensorId, severity, excursionTemp, timestamp).<br><br>
+<b>Scenario 2: No active alerts</b><br>
+Given a request GET /api/v1/alerts?status=ACTIVE is received,<br>
+When there are no active thermal excursions recorded,<br>
+Then the API responds with 200 OK and returns an empty array.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS07</td>
+<td>Submit corrective action for an incident</td>
+<td>As a: frontend developer, I want to: post a resolution payload to /api/v1/alerts/alertId/actions. So that: technicians can document incident mitigation.</td>
+<td>
+<b>Scenario 1: Action logged successfully</b><br>
+Given a request POST /api/v1/alerts/{alertId}/actions is received with a valid action payload,<br>
+When the API persists the action and updates alert status to "Resolved",<br>
+Then the API responds with 200 OK and returns the updated incident record with timestamp and digital signature.<br><br>
+<b>Scenario 2: Empty action description rejected</b><br>
+Given a request POST /api/v1/alerts/alertId/actions is received with an empty actionDescription,<br>
+When the API validates the request,<br>
+Then the API responds with 400 Bad Request stating that technical justification is mandatory for audit compliance.
+</td>
+<td>EP05</td>
+</tr>
+<tr>
+<td>TS08</td>
+<td>Retrieve historical thermal data for export and audit</td>
+<td>As a: frontend developer, I want to: request historical telemetry logs by date range. So that: I can render 24-hour trend charts and generate compliance PDF reports.</td>
+<td>
+<b>Scenario 1: Historical data retrieved</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId/history?startDate=startDate&endDate=endDate is received,<br>
+When the API retrieves the chronological temperature and incident logs,<br>
+Then the API responds with 200 OK and returns an array of data points with digital integrity verification hashes.<br><br>
+<b>Scenario 2: Invalid date range requested</b><br>
+Given a request GET /api/v1/laboratories/laboratoryId/history with startDate greater than endDate is received,<br>
+When the API validates query parameters,<br>
+Then the API responds with 400 Bad Request detailing invalid temporal parameters.
+</td>
+<td>EP05</td>
 </tr>
 	</tbody>
 </table>
