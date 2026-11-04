@@ -64,7 +64,7 @@
             <td>8</td>
             <td>US17</td>
             <td>Critical Incident Management and Resolution</td>
-            <td>As a: Laboratory Technician / Coordinator. I want to: Manage active alerts by executing and logging corrective actions. So that: I can mitigate the impact of thermal excursions and ensure the incident is resolved under biosafety protocols.</td>
+            <td>As a: Laboratory Technician. I want to: Manage active alerts by executing and logging corrective actions. So that: I can mitigate the impact of thermal excursions and ensure the incident is resolved under biosafety protocols.</td>
             <td>5</td>
         </tr>
         <tr>
@@ -225,7 +225,7 @@
             <td>31</td>
             <td>US29</td>
             <td>Execution and Logging of Sensor Calibration</td>
-            <td>As a: Calibration Technician / Support. I want to: Execute sensor calibration process directly from configuration panel. So that: I can guarantee reading accuracy according to ISO 17025 standard and avoid legal deviations in temperature reports.</td>
+            <td>As a: Calibration Technician. I want to: Execute sensor calibration process directly from configuration panel. So that: I can guarantee reading accuracy according to ISO 17025 standard and avoid legal deviations in temperature reports.</td>
             <td>3</td>
         </tr>
         <tr>
@@ -239,7 +239,7 @@
             <td>33</td>
             <td>US28</td>
             <td>Regulatory Audit Report Generation</td>
-            <td>As a: Quality Director / External Auditor. I want to: Generate consolidated and immutable reports of all readings and incidents for a given period. So that: I can present evidence to regulatory entities certifying cold chain integrity.</td>
+            <td>As a: Quality Director. I want to: Generate consolidated and immutable reports of all readings and incidents for a given period. So that: I can present evidence to regulatory entities certifying cold chain integrity.</td>
             <td>5</td>
         </tr>
         <tr>
@@ -274,7 +274,7 @@
             <td>38</td>
             <td>US04</td>
             <td>Secure Access to the Monitoring Ecosystem</td>
-            <td>As a: Registered User (Technician/Admin). I want to: Authenticate through the secure access portal using IAM-managed credentials. So that: I can enter the Dashboard and manage thermal incidents according to my assigned permissions.</td>
+            <td>As a: Registered User. I want to: Authenticate through the secure access portal using IAM-managed credentials. So that: I can enter the Dashboard and manage thermal incidents according to my assigned permissions.</td>
             <td>5</td>
         </tr>
         <tr>
@@ -365,7 +365,7 @@
             <td>51</td>
             <td>US48</td>
             <td>User Account Deactivation and Data Anonymization</td>
-            <td>As a: HR / IT Administrator. I want to: Deactivate former employee accounts while retaining anonymized audit logs of their past system actions. So that: Historical compliance records remain intact without security risks.</td>
+            <td>As a: IT Administrator. I want to: Deactivate former employee accounts while retaining anonymized audit logs of their past system actions. So that: Historical compliance records remain intact without security risks.</td>
             <td>3</td>
         </tr>
         <tr>
