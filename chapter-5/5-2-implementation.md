@@ -989,13 +989,6 @@ The sprint backlog was used to track the selected user stories and their progres
           <td>C</td>
        </tr>
        <tr>
-          <td>Padilla Merino, Mauricio Jared</td>
-          <td>ClifeK</td>
-          <td>C</td>
-          <td>C</td>
-          <td>C</td>
-       </tr>
-       <tr>
           <td>Reyes Munoz, Joaquin Leonardo</td>
           <td>JoakoRM</td>
           <td>L</td>
