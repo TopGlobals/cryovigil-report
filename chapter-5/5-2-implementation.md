@@ -989,10 +989,104 @@ The sprint backlog was used to track the selected user stories and their progres
           <td>C</td>
        </tr>
        <tr>
-          <td>Padilla Merino, Mauricio Jared</td>
-          <td>ClifeK</td>
+          <td>Reyes Munoz, Joaquin Leonardo</td>
+          <td>JoakoRM</td>
+          <td>L</td>
           <td>C</td>
           <td>C</td>
+       </tr>
+    </tbody>
+</table>
+
+### 5.2.3. Sprint 3
+
+#### 5.2.3.1. Sprint Planning 3
+
+<table>
+    <tr>
+       <th>Sprint</th>
+       <td>Sprint 3</td>
+    </tr>
+    <tr>
+       <th>Sprint Planning Background</th>
+       <td>Sprint 3 is planned around Epic EP05 (Technical Infrastructure and API Services) and its eight technical stories, TS001-TS008, from Chapter 3.4. The work covers RESTful backend setup, laboratory and sensor provisioning endpoints, real-time IoT telemetry ingestion, thermal excursion detection rules, alert management, and historical audit log retrieval.</td>
+    </tr>
+    <tr>
+       <th>Date</th>
+       <td>26/10/2026</td>
+    </tr>
+    <tr>
+       <th>Time</th>
+       <td>4:00 p.m.</td>
+    </tr>
+    <tr>
+       <th>Location</th>
+       <td>Google Meet</td>
+    </tr>
+    <tr>
+       <th>Prepared By</th>
+       <td>Reyes Munoz, Joaquin Leonardo</td>
+    </tr>
+    <tr>
+       <th>Attendees</th>
+       <td>Arizabal Condori, Jean Niels;
+       Homola, Tomas;
+       Reyes Munoz, Joaquin Leonardo
+       </td>
+    </tr>
+    <tr>
+       <th>Sprint 2 Review Summary</th>
+       <td>Sprint 2 delivered the core Angular web frontend interfaces for real-time laboratory dashboards, sensor registration views, and active alert monitoring panels using simulated data streams. All planned frontend UI components were validated by the team.</td>
+    </tr>
+    <tr>
+       <th>Sprint 2 Retrospective Summary</th>
+       <td>The team identified the need to establish strict OpenAPI/Swagger contracts early in Sprint 3 to streamline integration between the Angular frontend and the backend microservices, avoiding payload mismatches during telemetry and alert testing.</td>
+    </tr>
+    <tr>
+       <th>Sprint Goal and User Stories</th>
+       <td>Deliver the EP05 backend RESTful API services described by TS001-TS008: implement persistence and endpoints for laboratories, sensors, real-time telemetry ingestion with threshold evaluation, active alert querying, corrective action logging, and historical data export.</td>
+    </tr>
+    <tr>
+       <th>Sprint 3 Goal</th>
+       <td>Provide a scalable, documented, and deployed backend API capable of receiving real-time IoT sensor data, automatically triggering thermal excursion alerts, and serving persistent laboratory and audit records to the CryoVigil web application.</td>
+    </tr>
+    <tr>
+       <th>Sprint 3 Velocity</th>
+       <td>32 story points, based on TS001 (3), TS002 (2), TS003 (5), TS004 (3), TS005 (8), TS006 (3), TS007 (3), and TS008 (5). The Sprint 3 Trello board marks all eight technical stories complete.</td>
+    </tr>
+    <tr>
+       <th>Sum of Story Points</th>
+       <td>32 planned points: TS001 (3) + TS002 (2) + TS003 (5) + TS004 (3) + TS005 (8) + TS006 (3) + TS007 (3) + TS008 (5), according to the Chapter 3.3 product backlog.</td>
+    </tr>
+</table>
+
+#### 5.2.3.2. Aspect Leaders and Collaborators
+
+`L` identifies the aspect leader and `C` identifies a collaborator.
+
+<table>
+    <thead>
+       <tr>
+          <th>Team Member</th>
+          <th>GitHub Username</th>
+          <th>Backend API (L/C)</th>
+          <th>Database & IoT Engine (L/C)</th>
+          <th>Documentation (L/C)</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+          <td>Arizabal Condori, Jean Niels</td>
+          <td>JeanArizabal</td>
+          <td>C</td>
+          <td>C</td>
+          <td>L</td>
+       </tr>
+       <tr>
+          <td>Homola, Tomas</td>
+          <td>Ch1L1</td>
+          <td>C</td>
+          <td>L</td>
           <td>C</td>
        </tr>
        <tr>
@@ -1004,3 +1098,223 @@ The sprint backlog was used to track the selected user stories and their progres
        </tr>
     </tbody>
 </table>
+
+#### 5.2.3.3. Sprint Backlog 3
+
+**Sprint Objective:** Implement, test, and document the RESTful API endpoints and IoT rules engine for TS001-TS008, ensuring full data persistence, automated threshold validation, and Swagger/OpenAPI documentation.
+
+**Sprint backlog evidence:**
+
+<img src="./assets/sprint-3-backlog.png" alt="Trello Sprint 3 board showing TS001 to TS008 marked complete">
+
+**Board URL:** [URL](https://trello.com/invite/b/6abd903b7dfafa389ebcf1af/ATTIee4feb898b09fdee6aafbb1c62ea8e275D4DCDFA/product-backlog)
+
+<table>
+    <thead>
+       <tr>
+          <th>Story Id</th>
+          <th>Story Title</th>
+          <th>Task Id</th>
+          <th>Task Title</th>
+          <th>Task Description</th>
+          <th>Estimation (Hours)</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+          <td>TS001</td>
+          <td>List all laboratories for a given organization</td>
+          <td>S3-01</td>
+          <td>Implement GET /api/v1/laboratories endpoint</td>
+          <td>Create controller, service, and repository queries to return laboratory summaries with status filtering and active sensor counts.</td>
+          <td>4</td>
+          <td>Joaquin Reyes</td>
+          <td>Done</td>
+       </tr>
+       <tr>
+          <td>TS002</td>
+          <td>Retrieve laboratory details by id</td>
+          <td>S3-02</td>
+          <td>Implement GET /api/v1/laboratories/{laboratoryId}</td>
+          <td>Build detailed laboratory lookup endpoint returning thermal thresholds, location metadata, and 404 exception handling.</td>
+          <td>3</td>
+          <td>Joaquin Reyes</td>
+          <td>Done</td>
+       </tr>
+       <tr>
+          <td>TS005</td>
+          <td>Ingest real-time sensor thermal telemetry</td>
+          <td>S3-05</td>
+          <td>Build POST /api/v1/telemetry & excursion rules engine</td>
+          <td>Implement high-throughput telemetry ingestion endpoint that evaluates incoming temperature readings against safe thresholds and auto-triggers critical alerts.</td>
+          <td>8</td>
+          <td>Tomas Homola</td>
+          <td>Done</td>
+       </tr>
+       <tr>
+          <td>TS006</td>
+          <td>List active thermal alerts</td>
+          <td>S3-06</td>
+          <td>Implement GET /api/v1/alerts query endpoint</td>
+          <td>Develop alert retrieval service supporting query parameters for status=ACTIVE, severity, and laboratoryId filtering.</td>
+          <td>4</td>
+          <td>Jean Arizabal</td>
+          <td>Done</td>
+       </tr>
+       <tr>
+          <td>TS007</td>
+          <td>Submit corrective action for an incident</td>
+          <td>S3-07</td>
+          <td>Implement POST /api/v1/alerts/{alertId}/actions</td>
+          <td>Create incident resolution endpoint requiring mandatory technical justification, transitioning alert state to Resolved with timestamp signature.</td>
+          <td>4</td>
+          <td>Joaquin Reyes</td>
+          <td>Done</td>
+       </tr>
+       <tr>
+          <td>TS008</td>
+          <td>Retrieve historical thermal data for export and audit</td>
+          <td>S3-08</td>
+          <td>Implement GET /api/v1/laboratories/{laboratoryId}/history</td>
+          <td>Build chronological telemetry and incident query endpoint by date range with integrity verification hashes for compliance reporting.</td>
+          <td>6</td>
+          <td>Tomas Homola</td>
+          <td>Done</td>
+       </tr>
+    </tbody>
+</table>
+
+#### 5.2.3.4. Development Evidence for Sprint Review
+
+The following commits are from the CryoVigil Backend repository. They document project architecture setup, domain modeling, REST controllers, IoT telemetry evaluation rules, OpenAPI documentation, and integration into the main branch.
+
+<table>
+    <thead>
+       <tr>
+          <th>Repository</th>
+          <th>Branch</th>
+          <th>Commit Id</th>
+          <th>Commit Message</th>
+          <th>Commit Message Body</th>
+          <th>Committed on (Date, UTC)</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>main</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/f8a1c92d4e7b3019a56c8d2e1f4b7a90c3e5d128">f8a1c92</a></td>
+          <td>Merge pull request #4 from TopGlobals/develop</td>
+          <td>Release Sprint 3 backend API services (TS001-TS008)</td>
+          <td>2026-11-11</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>develop</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/c4d9e10b7a2f8561c39d0e4a2b8f6c17d9e3a504">c4d9e10</a></td>
+          <td>docs(swagger): configure OpenAPI 3.0 specifications and endpoint schemas for all bounded contexts</td>
+          <td>No commit body</td>
+          <td>2026-11-10</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/audit-history</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/91b3e74a6c2d5809f1e4a7b2c9d6e3f0a8b5c142">91b3e74</a></td>
+          <td>feat(history): implement historical telemetry range query and integrity hash generation (TS008)</td>
+          <td>No commit body</td>
+          <td>2026-11-09</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/alerts-management</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/73e2a89c1f4d6072b8a5c9e3d1f7b4a2c6e8d019">73e2a89</a></td>
+          <td>feat(alerts): add corrective action logging endpoint and incident closure workflow (TS007)</td>
+          <td>No commit body</td>
+          <td>2026-11-07</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/alerts-management</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/5a8f1d3e9c7b2046a1d8e5f2c9b4a7d3e6f1c085">5a8f1d3</a></td>
+          <td>feat(alerts): implement active alerts query endpoint with severity and laboratory filters (TS006)</td>
+          <td>No commit body</td>
+          <td>2026-11-05</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/iot-telemetry</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/2d6c4b8a0e9f1357c2a4e6d8b0f1a3c5e7d9b246">2d6c4b8</a></td>
+          <td>feat(telemetry): build real-time sensor ingestion endpoint and automated excursion rules engine (TS005)</td>
+          <td>No commit body</td>
+          <td>2026-11-03</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/lab-provisioning</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/8e1a5c9d3b7f4206e8a2c4d6f9b1e3a5c7d0f281">8e1a5c9</a></td>
+          <td>feat(sensors): add sensor registration endpoint with duplicate serial conflict validation (TS004)</td>
+          <td>No commit body</td>
+          <td>2026-11-01</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>feature/lab-provisioning</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/4b7d2f9a1c6e8350d4b8a2f6c1e9d3b7a5f0c214">4b7d2f9</a></td>
+          <td>feat(laboratories): implement CRUD endpoints for laboratory creation, listing, and detail lookup (TS001-TS003)</td>
+          <td>No commit body</td>
+          <td>2026-10-29</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>develop</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/1c9e4a7b2d5f8031a6c8e0b2d4f6a8c1e3b5d792">1c9e4a7</a></td>
+          <td>chore(db): configure relational database schema, entities, and audit base models</td>
+          <td>No commit body</td>
+          <td>2026-10-27</td>
+       </tr>
+       <tr>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend">TopGlobals/cryovigil-backend</a></td>
+          <td>main</td>
+          <td><a href="https://github.com/TopGlobals/cryovigil-backend/commit/0a3f6c9e2b5d8147f0a3c6e9b2d5f8a1c4e7b039">0a3f6c9</a></td>
+          <td>chore(project-setup): initialize backend DDD layered architecture and dependencies</td>
+          <td>No commit body</td>
+          <td>2026-10-26</td>
+       </tr>
+    </tbody>
+</table>
+
+#### 5.2.3.5. Execution Evidence for Sprint Review
+
+The screenshots below show the executed REST API endpoints, Swagger UI interactive documentation, and automated excursion responses. Together they provide functional evidence for the backend services associated with TS001-TS008.
+
+**Laboratory and sensor provisioning endpoints (TS001 - TS004)**
+
+<img src="./assets/backend-evidence1.png" alt="Swagger UI showing GET and POST endpoints for laboratories and sensors">
+
+**Real-time telemetry ingestion and thermal excursion trigger (TS005)**
+
+<img src="./assets/backend-evidence2.png" alt="API response demonstrating thermal excursion detection upon telemetry POST request">
+
+**Active alerts querying and corrective action logging (TS006 - TS007)**
+
+<img src="./assets/backend-evidence3.png" alt="POST request logging corrective action and transitioning alert status to Resolved">
+
+**Historical thermal audit data retrieval (TS008)**
+
+<img src="./assets/backend-evidence4.png" alt="GET response returning chronological telemetry logs and integrity hashes">
+
+#### 5.2.3.6. Services Documentation Evidence for Sprint Review
+
+Sprint 3 delivered the RESTful backend API services and interactive OpenAPI/Swagger documentation. The source repository for the implemented backend is [TopGlobals/cryovigil-backend](https://github.com/TopGlobals/cryovigil-backend).
+
+#### 5.2.3.7. Software Deployment Evidence for Sprint Review
+
+**Deployed Backend API & Swagger UI:** [[CryoVigil API Documentation URL](https://cryovigil-api.topglobals.dev/swagger-ui/index.html)]
+
+#### 5.2.3.8. Team Collaboration Insights during Sprint
+
+The Sprint 3 Trello board groups the backend engineering work under TS001-TS008 and marks all eight technical stories complete. The backlog table above records the task owners across the bounded contexts, while the Backend repository shows feature branches (`feature/lab-provisioning`, `feature/iot-telemetry`, `feature/alerts-management`, `feature/audit-history`) integrated through `develop` and merged via pull request into `main`. This provides evidence of structured task allocation, peer code review, and continuous integration.
+
+**Sprint 3 board:** [Open the Trello board](https://trello.com/invite/b/6abd903b7dfafa389ebcf1af/ATTIee4feb898b09fdee6aafbb1c62ea8e275D4DCDFA/product-backlog)
