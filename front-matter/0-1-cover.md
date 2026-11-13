@@ -48,14 +48,6 @@ Project
 			<td>Homola, Tomas</td>
 		</tr>
 		<tr>
-			<td>U20241B645</td>
-			<td>Linares Rodriguez, Franco Orlando</td>
-		</tr>
-		<tr>
-			<td>U201911393</td>
-			<td>Padilla Merino, Mauricio Jared</td>
-		</tr>
-		<tr>
 			<td>U202423262</td>
 			<td>Reyes Munoz, Joaquin Leonardo</td>
 		</tr>
@@ -64,6 +56,6 @@ Project
 
 <strong>Term 202620</strong>
 
-<strong>September 2026</strong>
+<strong>November 2026</strong>
 
 </div>
